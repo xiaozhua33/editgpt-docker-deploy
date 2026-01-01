@@ -3,7 +3,9 @@
 
 chat_model:
   provider: ollama
-  model: llama3
+  model: llama3.1
+  # 👇 换成你刚才查到的真实 IP
+  base_url: "http://10.19.162.99:11434"
   temperature: 0.2
   top_p: 0.5
 

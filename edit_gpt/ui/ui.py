@@ -297,7 +297,6 @@ class EditGptUi:
                         col_count=1,
                         headers=["File name"],
                         label="Ingested Files",
-                        height=400,
                         interactive=False,
                         render=False,  # Rendered under the button
                     )
@@ -373,14 +372,13 @@ class EditGptUi:
                 with gr.Column(scale=4, elem_id="col"):
                     chatbot = gr.Chatbot(
                         label="LLM: ",
-                        show_copy_button=True,
                         elem_id="chatbot",
                         render=False,
                     )
                     chat_interface = gr.ChatInterface(self._chat, chatbot=chatbot)
-                    chat_interface.undo_btn.click(self._undo)
-                    chat_interface.retry_btn.click(self._undo)
-                    chat_interface.clear_btn.click(self._clear)
+            # chat_interface.undo_btn.click(self._undo)
+            # chat_interface.retry_btn.click(self._undo)
+            # chat_interface.clear_btn.click(self._clear)
 
                 with gr.Column(
                     scale=4,

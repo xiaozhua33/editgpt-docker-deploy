@@ -69,6 +69,7 @@ def launch_app():
     additional_data_manager = AdditionalDataPreprocessor(
         rag_manager=rag_manager, web_search_tool=web_search_tool
     )
+    
     ui = EditGptUi(
         ingest_service=ingest_service,
         chat_manager=chat_manager,
@@ -78,8 +79,14 @@ def launch_app():
     )
     _blocks = ui.get_ui_blocks()
     _blocks.queue()
-    _blocks.launch(debug=False, show_api=False)
-
+    
+    # 重点修改这里：开启 debug 模式，以便在终端看到加载过程中的详细报错
+    _blocks.launch(
+        debug=True, 
+        server_name="0.0.0.0", 
+        server_port=7860,
+        show_error=True
+    )
 
 if __name__ == "__main__":
     launch_app()
